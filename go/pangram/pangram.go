@@ -12,14 +12,10 @@ func IsPangram(input string) bool {
 		return false
 	}
 
-	occurrences := make(map[int32]int)
+	s := strings.ToLower(input)
 
-	for _, c := range strings.ToLower(input) {
-		occurrences[c] += 1
-	}
-
-	for _, c := range "abcdefghijklmnopqrstuvwxyz" {
-		if occurrences[c] == 0 {
+	for i := 'a'; i <= 'z'; i++ {
+		if !strings.Contains(s, string(i)) {
 			return false
 		}
 	}
